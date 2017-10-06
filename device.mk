@@ -19,9 +19,6 @@ $(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk
 
 $(call inherit-product, vendor/leeco/x2/x2-vendor.mk)
 
-# ViperFX + Dolby Atmos
-AUDIO_VIPDAX := true
-
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
@@ -80,13 +77,13 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml
 
 # Audio
-ifeq ($(AUDIO_VIPDAX),true)
-    ADDITIONAL_DEFAULT_PROPERTIES += ro.musicfx.disabled=true
-endif
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_platform_info.xml:system/etc/audio_platform_info.xml \
     $(LOCAL_PATH)/audio/mixer_paths_tasha.xml:system/etc/mixer_paths_tasha.xml \
     $(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf
+
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    ro.musicfx.disabled=true
 
 # Keylayouts
 PRODUCT_COPY_FILES += \
@@ -98,13 +95,6 @@ PRODUCT_COPY_FILES += \
 
 # Haters gonna hate..
 PRODUCT_CHARACTERISTICS := nosdcard
-
-#PRODUCT_PROPERTY_OVERRIDES += \
-#    ro.sys.sdcardfs=true
-
-# Alipay / WeChat
-PRODUCT_BOOT_JARS += \
-    org.ifaa.android.manager
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -131,9 +121,7 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    Snap \
-    SnapdragonCamera \
-    libstlport
+    Snap
 
 # Shims
 PRODUCT_PACKAGES += \
@@ -330,7 +318,3 @@ endif
 PRODUCT_SYSTEM_PROPERTY_BLACKLIST := \
     ro.product.model
 
-# ViperFX + Dolby Atmos Vendor
-ifeq ($(AUDIO_VIPDAX),true)
-$(call inherit-product-if-exists, vendor/leeco/vipdax/vipdax-vendor.mk)
-endif
