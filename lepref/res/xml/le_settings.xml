@@ -16,7 +16,7 @@
 
 	</PreferenceCategory>
 
-    <PreferenceCategory
+<!--	    <PreferenceCategory
         android:key="akt_profile"
         android:title="@string/akt_profile_title" >
 
@@ -30,7 +30,7 @@
 			android:dialogTitle="@string/akt_dialogTitle" />
 
 	</PreferenceCategory>
-<!--	
+
     <PreferenceCategory
         android:key="camera_pref"
         android:title="@string/camera_pref_title" >

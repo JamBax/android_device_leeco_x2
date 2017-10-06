@@ -34,14 +34,14 @@ public class LePrefSettings extends PreferenceActivity implements OnPreferenceCh
 	private static final String TAG = "LePref";
 	private static final String ENABLE_QC_KEY = "qc_setting";
 //	private static final String ENABLE_HAL3_KEY = "hal3";
-	private static final String AKT_KEY = "akt";
+//	private static final String AKT_KEY = "akt";
 	private static final String QC_SYSTEM_PROPERTY = "persist.sys.le_fast_chrg_enable";
 //	private static final String HAL3_SYSTEM_PROPERTY = "persist.camera.HAL3.enabled";
-	private static final String AKT_SYSTEM_PROPERTY = "persist.AKT.profile";
+//	private static final String AKT_SYSTEM_PROPERTY = "persist.AKT.profile";
 
 	private SwitchPreference mEnableQC;
 //	private SwitchPreference mEnableHAL3;
-	private ListPreference mAKT;
+//	private ListPreference mAKT;
 
     private Context mContext;
     private SharedPreferences mPreferences;
@@ -60,9 +60,9 @@ public class LePrefSettings extends PreferenceActivity implements OnPreferenceCh
 //        mEnableHAL3.setChecked(SystemProperties.getBoolean(HAL3_SYSTEM_PROPERTY, false));
 //        mEnableHAL3.setOnPreferenceChangeListener(this);
         
-        mAKT = (ListPreference) findPreference(AKT_KEY);
-        mAKT.setValue(SystemProperties.get(AKT_SYSTEM_PROPERTY, "Stock"));
-        mAKT.setOnPreferenceChangeListener(this);
+//        mAKT = (ListPreference) findPreference(AKT_KEY);
+//        mAKT.setValue(SystemProperties.get(AKT_SYSTEM_PROPERTY, "Stock"));
+//        mAKT.setOnPreferenceChangeListener(this);
         
         if (DEBUG) Log.d(TAG, "Initializating done");
     }
@@ -77,7 +77,7 @@ public class LePrefSettings extends PreferenceActivity implements OnPreferenceCh
 		}
 		if (DEBUG) Log.d(TAG, "QC setting changed");
     }
-
+/* 
     // Set AKT
     private void setAKT(String value) {
 		try {
@@ -102,7 +102,7 @@ public class LePrefSettings extends PreferenceActivity implements OnPreferenceCh
 		SystemProperties.set(AKT_SYSTEM_PROPERTY, value);
     }
  
-/* 
+ 
     // Control Camera2API
     private void setEnableHAL3(boolean value) {
 	if(value) {
@@ -144,13 +144,13 @@ public class LePrefSettings extends PreferenceActivity implements OnPreferenceCh
 //			mEnableHAL3.setChecked(value);
 //			setEnableHAL3(value);
 //			return true;
-		} else if (AKT_KEY.equals(key)) {
-			strvalue = (String) newValue;
-			//mEnableHAL3.setChecked(value);
+//		} else if (AKT_KEY.equals(key)) {
+//			strvalue = (String) newValue;
+//			//mEnableHAL3.setChecked(value);
 			//setEnableHAL3(value);
-			if (DEBUG) Log.d(TAG, "AKT setting changed: " + strvalue);
-			setAKT(strvalue);
-			return true;
+//			if (DEBUG) Log.d(TAG, "AKT setting changed: " + strvalue);
+//			setAKT(strvalue);
+//			return true;
 		}
           
           

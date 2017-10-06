@@ -273,10 +273,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     LePref
 
-# LePref Files
-PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,device/leeco/x2/lepref/files,/system/etc)
-
 # Wifi
 PRODUCT_PACKAGES += \
     ipacm \
