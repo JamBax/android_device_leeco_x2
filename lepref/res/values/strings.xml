@@ -27,8 +27,20 @@
     <string name="akt_dialogTitle">Choose your power saver profile</string>
 	
 	<!-- Camera -->
-	<string name="camera_pref_title">Camera</string>
+    <string name="camera_pref_title">Camera</string>
     <string name="hal3_title">Camera 2 API</string>
     <string name="hal3_summary">Enable/disable API2 mode for camera</string>
+
+    <string name="semiidle_pref_title">SemiIdle</string>
+    <string name="semiidle_title">SemiIdle Mode</string>
+    <string name="semiidle_summary">Enable/disable SemiIdle mode while screen on</string>
+
+    <string name="cpusleep_pref_title">CPU Sleep while Screen On</string>
+    <string name="cpusleep_title">CPU Sleep while screen on Mode</string>
+    <string name="cpusleep_summary">Enable/disable CPU Sleep mode while screen on</string>
+
+    <string name="imssrv_pref_title">IMS Services</string>
+    <string name="imssrv_title">IMS Services</string>
+    <string name="imssrv_summary">Enable/disable IMS Services</string>
 
 </resources>

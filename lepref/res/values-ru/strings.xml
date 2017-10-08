@@ -30,4 +30,17 @@
     <string name="camera_pref_title">Камера</string>
     <string name="hal3_title">Camera 2 API</string>
     <string name="hal3_summary">Вкл/выкл режима API2</string>
+
+    <string name="semiidle_pref_title">SemiIdle</string>
+    <string name="semiidle_title">Режим SemiIdle</string>
+    <string name="semiidle_summary">Вкл/выкл режима SemiIdle при включенном экране</string>
+
+    <string name="cpusleep_pref_title">CPU Sleep с включенным экраном</string>
+    <string name="cpusleep_title">CPU Sleep с включенным экраном</string>
+    <string name="cpusleep_summary">Вкл/выкл режима CPU Sleep при включенном экране</string>
+
+    <string name="imssrv_pref_title">IMS Services</string>
+    <string name="imssrv_title">IMS Services</string>
+    <string name="imssrv_summary">Вкл/выкл сервисов IMS</string>
+
 </resources>

@@ -16,7 +16,7 @@
 
 	</PreferenceCategory>
 
-<!--	    <PreferenceCategory
+    <PreferenceCategory
         android:key="akt_profile"
         android:title="@string/akt_profile_title" >
 
@@ -30,7 +30,7 @@
 			android:dialogTitle="@string/akt_dialogTitle" />
 
 	</PreferenceCategory>
-
+	
     <PreferenceCategory
         android:key="camera_pref"
         android:title="@string/camera_pref_title" >
@@ -42,5 +42,36 @@
             android:summary="@string/hal3_summary" />
 
 	</PreferenceCategory>
--->
+
+    <PreferenceCategory
+        android:key="semiidle_pref"
+        android:title="@string/semiidle_pref_title" >
+
+        <SwitchPreference
+            android:key="semiidle"
+            android:defaultValue="false"
+            android:title="@string/semiidle_title"
+            android:summary="@string/semiidle_summary" />
+
+        <SwitchPreference
+            android:key="cpusleep"
+            android:defaultValue="false"
+            android:title="@string/cpusleep_title"
+            android:summary="@string/cpusleep_summary" />
+
+	</PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="imssrv_pref"
+        android:title="@string/imssrv_pref_title" >
+
+
+        <SwitchPreference
+            android:key="imssrv"
+            android:defaultValue="false"
+            android:title="@string/imssrv_title"
+            android:summary="@string/imssrv_summary" />
+
+	</PreferenceCategory>
+
 </PreferenceScreen>
