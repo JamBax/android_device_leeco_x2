@@ -93,7 +93,7 @@ persist.audio.fluence.speaker=true
 tunnel.audio.encode=false
 media.aac_51_output_enabled=true
 audio.heap.size.multiplier=7
-audio.offload.buffer.size.kb=64
+audio.offload.buffer.size.kb=31457280
 audio.offload.video=true
 audio.offload.pcm.16bit.enable=true
 audio.offload.pcm.24bit.enable=true
@@ -107,8 +107,8 @@ audio.parser.ip.buffer.size=262144
 audio.dolby.ds2.enabled=false
 audio.dolby.ds2.hardbypass=false
 audio.offload.passthrough=false
-audio.offload.multiple.enabled=false
-audio.offload.min.duration.secs=30
+audio.offload.multiple.enabled=true
+audio.offload.min.duration.secs=0
 af.fast_track_multiplier=1
 audio_hal.period_size=192
 
@@ -150,7 +150,7 @@ persist.timed.enable=true
 wifi.interface=wlan0
 
 # HFP
-bt.max.hfpclient.connections=1
+bt.max.hfpclient.connections=2
 
 # Cabl
 ro.qualcomm.cabl=2
