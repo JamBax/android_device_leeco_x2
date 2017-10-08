@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-TARGET_OTA_ASSERT_DEVICE := le_x2,LeMax2_CN,LeMax2_NA
+TARGET_OTA_ASSERT_DEVICE := le_x2,LeMax2_CN,LeMax2_NA,LeMax2_WW
 DEVICE_PATH := device/leeco/x2
 TARGET_SPECIFIC_HEADER_PATH += $(DEVICE_PATH)/include
 BOARD_VENDOR := leeco
@@ -48,7 +48,7 @@ TARGET_USES_QCOM_BSP := true
 TARGET_USES_64_BIT_BINDER := true
 
 # Kernel
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 cma=32M@0-0xffffffff androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=0 cma=32M@0-0xffffffff androidboot.selinux=permissive
 BOARD_KERNEL_TAGS_OFFSET := 0x02000000
 BOARD_RAMDISK_OFFSET     := 0x02200000
 BOARD_KERNEL_BASE := 0x80000000
@@ -57,7 +57,7 @@ BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_KERNEL_APPEND_DTB := true
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
-TARGET_KERNEL_SOURCE := kernel/leeco/n7.1
+TARGET_KERNEL_SOURCE := kernel/leeco/msm8996
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 TARGET_COMPILE_WITH_MSM_KERNEL := true
 
