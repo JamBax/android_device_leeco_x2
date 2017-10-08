@@ -607,6 +607,7 @@ service imsqmidaemon /system/bin/imsqmidaemon
     socket ims_qmid stream 0660 system radio
     group radio net_raw log diag
     writepid /dev/cpuset/system-background/tasks
+    disabled
 
 service imsdatadaemon /system/bin/imsdatadaemon
     class main
@@ -626,6 +627,16 @@ on property:persist.sys.pd_enable=1
 
 on property:persist.sys.pd_enable=0
     write /sys/class/service_locator/service_locator_status 0
+
+
+on property:persist.ims.enabled=1
+    start imsqmidaemon
+
+on property:persist.ims.enabled=0
+    stop imsdatadaemon
+    stop imsqmidaemon
+    stop ims_rtp_daemon
+    stop imscmservice
 
 on property:sys.ims.QMI_DAEMON_STATUS=1
     start imsdatadaemon
