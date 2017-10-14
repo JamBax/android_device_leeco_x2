@@ -26,8 +26,21 @@
 <!-- IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                          -->
 <audio_platform_info>
     <acdb_ids>
-        <device name="SND_DEVICE_OUT_SPEAKER" acdb_id="15"/>
+        <device name="SND_DEVICE_OUT_SPEAKER" acdb_id="140"/> <!-- 14 -->
         <device name="SND_DEVICE_OUT_SPEAKER_PROTECTED" acdb_id="124"/>
+
+	<device name="SND_DEVICE_OUT_VOICE_HANDSET" acdb_id="7"/> <!-- 7 Handset call -->
+	<device name="SND_DEVICE_OUT_VOICE_SPEAKER_NB" acdb_id="140"/> <!-- Speakerphone 14 call -->
+	<device name="SND_DEVICE_OUT_BT_SCO" acdb_id="39"/> <!-- 22 Bluetooth call -->
+
+	<device name="SND_DEVICE_IN_VOICE_REC_DMIC_FLUENCE" acdb_id="41"/> <!-- 41 Handset call -->
+	<device name="SND_DEVICE_IN_VOICE_SPEAKER_MIC" acdb_id="41"/> <!-- 42 Speakerphone call  -->
+	<device name="SND_DEVICE_IN_BT_SCO_MIC" acdb_id="123"/> <!-- 122 Bluetooth call -->
+
+	<!-- Google camera recording microphone -->
+	<device name="SND_DEVICE_IN_CAMCORDER_MIC" acdb_id="52"/> <!-- 52 -->
+
+
     </acdb_ids>
     <bit_width_configs>
         <device name="SND_DEVICE_OUT_SPEAKER" bit_width="24"/>
@@ -55,3 +68,4 @@
         <param key="perf_lock_opts" value="4, 0x101, 0x704, 0x20F, 0x1E01"/>
     </config_params>
 </audio_platform_info>
+
