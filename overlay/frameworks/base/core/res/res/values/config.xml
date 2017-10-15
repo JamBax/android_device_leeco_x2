@@ -27,7 +27,7 @@
          Zone N:        array[N - 1] <= LUX < array[N]
          Zone N + 1     array[N] <= LUX < infinity
          Must be overridden in platform specific overlays -->
-    <integer-array name="config_autoBrightnessLevels">
+    <!-- integer-array name="config_autoBrightnessLevels">
         <item>4</item>
         <item>5</item>
         <item>8</item>
@@ -39,13 +39,13 @@
         <item>2600</item>
         <item>8000</item>
         <item>16000</item>
-    </integer-array>
+    </integer-array -->
 
     <!-- Array of output values for LCD backlight corresponding to the LUX values
          in the config_autoBrightnessLevels array.  This array should have size one greater
          than the size of the config_autoBrightnessLevels array.
          This must be overridden in platform specific overlays -->
-    <integer-array name="config_autoBrightnessLcdBacklightValues">
+    <!--integer-array name="config_autoBrightnessLcdBacklightValues">
         <item>4</item>
         <item>5</item>
         <item>6</item>
@@ -58,7 +58,70 @@
         <item>70</item>
         <item>90</item>
         <item>120</item>
+    </integer-array -->
+
+    <integer-array name="config_autoBrightnessLevels">
+        <item>1</item>
+        <item>5</item>
+        <item>40</item>
+        <item>350</item>
+        <item>600</item>
+        <item>1000</item>
+        <item>1600</item>
+        <item>3000</item>
+        <item>10000</item>
     </integer-array>
+    <integer-array name="config_autoBrightnessLcdBacklightValues">
+        <item>3</item>
+        <item>3</item>
+        <item>5</item>
+        <item>10</item>
+        <item>20</item>
+        <item>40</item>
+        <item>60</item>
+        <item>90</item>
+        <item>130</item>
+        <item>255</item>
+    </integer-array>
+    <array name="config_autoBrightnessButtonBacklightValues" />
+    <array name="config_autoBrightnessKeyboardBacklightValues" />
+
+    <!-- Fast brightness animation ramp rate in brightness units per second-->
+    <integer translatable="false" name="config_brightness_ramp_rate_fast">255</integer>
+
+    <!-- Slow brightness animation ramp rate in brightness units per second-->
+    <integer translatable="false" name="config_brightness_ramp_rate_slow">40</integer>
+
+
+    <bool name="config_allowAutoBrightnessWhileDozing">false</bool>
+    <bool name="config_autoBrightnessResetAmbientLuxAfterWarmUp">false</bool>
+    <integer name="config_screenBrightnessSettingMinimum">1</integer>
+    <integer name="config_screenBrightnessSettingMaximum">255</integer>
+    <integer name="config_screenBrightnessSettingDefault">127</integer>
+    <integer name="config_screenBrightnessDoze">3</integer>
+    <integer name="config_autoBrightnessBrighteningLightDebounce">1000</integer>
+    <integer name="config_autoBrightnessDarkeningLightDebounce">3000</integer>
+    <integer name="config_autoBrightnessInitialLightSensorRate">50</integer>
+    <integer name="config_autoBrightnessLightSensorRate">500</integer>
+
+    <integer name="config_autoBrightnessAmbientLightHorizon">10000</integer>
+
+    <integer name="config_screenBrightnessDim">5</integer>
+    <integer name="config_screenBrightnessDark">5</integer>
+    <fraction name="config_dimBehindFadeDuration">100.0%</fraction>
+    <fraction name="config_screenAutoBrightnessDozeScaleFactor">100.0%</fraction>
+    <fraction name="config_maximumScreenDimRatio">20.000004%</fraction>
+
+
+    <string-array name="config_locationProviderPackageNames">
+        <item>com.android.location.fused</item>
+        <item>com.google.android.gms</item>
+        <item>com.baidu.map.location</item>
+        <item>com.baidu.location.fused</item>
+    </string-array>
+    <array name="config_testLocationProviders" />
+
+
 
     <!-- Hardware keys present on the device, stored as a bit field.
          This integer should equal the sum of the corresponding value for each
@@ -122,25 +185,25 @@
          when adapting to brighter or darker environments.  This parameter controls how quickly
          brightness changes occur in response to an observed change in light level that exceeds the
          hysteresis threshold. -->
-    <integer name="config_autoBrightnessBrighteningLightDebounce">2000</integer>
-    <integer name="config_autoBrightnessDarkeningLightDebounce">4000</integer>
+    <!-- integer name="config_autoBrightnessBrighteningLightDebounce">1000</integer -->
+    <!-- integer name="config_autoBrightnessDarkeningLightDebounce">2000</integer -->
 
     <!-- Minimum screen brightness setting allowed by the power manager.
          The user is forbidden from setting the brightness below this level. -->
-    <integer name="config_screenBrightnessSettingMinimum">1</integer>
+    <!-- integer name="config_screenBrightnessSettingMinimum">1</integer -->
 
     <!-- Maximum screen brightness allowed by the power manager.
          The user is forbidden from setting the brightness above this level. -->
-    <integer name="config_screenBrightnessSettingMaximum">255</integer>
+    <!-- integer name="config_screenBrightnessSettingMaximum">255</integer -->
 
     <!-- Default screen brightness setting.
          Must be in the range specified by minimum and maximum. -->
-    <integer name="config_screenBrightnessSettingDefault">53</integer>
+    <!-- integer name="config_screenBrightnessSettingDefault">50</integer -->
 
     <!-- Screen brightness used to dim the screen when the user activity
          timeout expires.  May be less than the minimum allowed brightness setting
          that can be set by the user. -->
-    <integer name="config_screenBrightnessDim">6</integer>
+    <!-- integer name="config_screenBrightnessDim">6</integer -->
 
     <!-- List of regexpressions describing the interface (if any) that represent tetherable
          USB interfaces.  If the device doesn't want to support tething over USB this should
@@ -412,7 +475,7 @@
    </string-array>
 
     <!-- Should the pinner service pin the Camera application? -->
-    <bool name="config_pinnerCameraApp">true</bool>
+    <bool name="config_pinnerCameraApp">false</bool>
 
     <!-- Shutdown if the battery temperature exceeds (this value * 0.1) Celsius. -->
     <integer name="config_shutdownBatteryTemperature">680</integer>
