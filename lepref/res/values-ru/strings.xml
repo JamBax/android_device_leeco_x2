@@ -31,6 +31,10 @@
     <string name="hal3_title">Camera 2 API</string>
     <string name="hal3_summary">Вкл/выкл режима API2</string>
 
+    <string name="devidle_pref_title">DeviceIdle</string>
+    <string name="devidle_title">Device Idle</string>
+    <string name="devidle_summary">Вкл/выкл режима Idle. При выключении ВСЕ функции сохранения энергии будут отключены.</string>
+
     <string name="semiidle_pref_title">SemiIdle</string>
     <string name="semiidle_title">Режим SemiIdle</string>
     <string name="semiidle_summary">Вкл/выкл режима SemiIdle при включенном экране</string>

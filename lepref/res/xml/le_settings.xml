@@ -44,8 +44,15 @@
 	</PreferenceCategory>
 
     <PreferenceCategory
-        android:key="semiidle_pref"
-        android:title="@string/semiidle_pref_title" >
+        android:key="devidle_pref"
+        android:title="@string/devidle_pref_title" >
+
+
+        <SwitchPreference
+            android:key="devidle"
+            android:defaultValue="false"
+            android:title="@string/devidle_title"
+            android:summary="@string/devidle_summary" />
 
         <SwitchPreference
             android:key="semiidle"

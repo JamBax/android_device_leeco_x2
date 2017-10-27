@@ -30,13 +30,14 @@ import android.widget.Toast;
 import android.preference.ListPreference;
 
 public class LePrefSettings extends PreferenceActivity implements OnPreferenceChangeListener {
-	private static final boolean DEBUG = false;
+	private static final boolean DEBUG = true;
 	private static final String TAG = "LePref";
 	private static final String ENABLE_QC_KEY = "qc_setting";
 	private static final String ENABLE_HAL3_KEY = "hal3";
 	private static final String ENABLE_SEMIIDLE_KEY = "semiidle";
 	private static final String ENABLE_CPUSLEEP_SO_KEY = "cpusleep";
 	private static final String ENABLE_IMSSRV_KEY = "imssrv";
+	private static final String ENABLE_DEVIDLE_KEY = "devidle";
 	private static final String AKT_KEY = "akt";
 	private static final String QC_SYSTEM_PROPERTY = "persist.sys.le_fast_chrg_enable";
 	private static final String HAL3_SYSTEM_PROPERTY = "persist.camera.HAL3.enabled";
@@ -44,12 +45,15 @@ public class LePrefSettings extends PreferenceActivity implements OnPreferenceCh
 	private static final String SEMIIDLE_SYSTEM_PROPERTY = "persist.semiidle.enabled";
     	private static final String CPUSLEEP_SO_SYSTEM_PROPERTY = "persist.cpusleep_so.enabled";
     	private static final String IMSSRV_SYSTEM_PROPERTY = "persist.ims.enabled";
+    	private static final String DEVIDLE_SYSTEM_PROPERTY = "persist.devidle.enabled";
 
 	private SwitchPreference mEnableQC;
 	private SwitchPreference mEnableHAL3;
 	private SwitchPreference mEnableSemiIdle;
 	private SwitchPreference mEnableCpuSleepScreenOn;
 	private SwitchPreference mEnableIms;
+	private SwitchPreference mEnableDevIdle;
+	
 
 	private ListPreference mAKT;
 
@@ -69,6 +73,10 @@ public class LePrefSettings extends PreferenceActivity implements OnPreferenceCh
         mEnableHAL3 = (SwitchPreference) findPreference(ENABLE_HAL3_KEY);
         mEnableHAL3.setChecked(SystemProperties.getBoolean(HAL3_SYSTEM_PROPERTY, false));
         mEnableHAL3.setOnPreferenceChangeListener(this);
+
+        mEnableDevIdle = (SwitchPreference) findPreference(ENABLE_DEVIDLE_KEY);
+        mEnableDevIdle.setChecked(SystemProperties.getBoolean(DEVIDLE_SYSTEM_PROPERTY, false));
+        mEnableDevIdle.setOnPreferenceChangeListener(this);
 
         mEnableSemiIdle = (SwitchPreference) findPreference(ENABLE_SEMIIDLE_KEY);
         mEnableSemiIdle.setChecked(SystemProperties.getBoolean(SEMIIDLE_SYSTEM_PROPERTY, false));
@@ -134,6 +142,15 @@ public class LePrefSettings extends PreferenceActivity implements OnPreferenceCh
 	if (DEBUG) Log.d(TAG, "HAL3 setting changed");
     }
 
+    private void setEnableDevIdle(boolean value) {
+	if(value) {
+		SystemProperties.set(DEVIDLE_SYSTEM_PROPERTY, "1");
+	} else {
+		SystemProperties.set(DEVIDLE_SYSTEM_PROPERTY, "0");
+	}
+	if (DEBUG) Log.d(TAG, "DEVIDLE setting changed");
+    }
+
     private void setEnableSemiIdle(boolean value) {
 	if(value) {
 		SystemProperties.set(SEMIIDLE_SYSTEM_PROPERTY, "1");
@@ -158,7 +175,7 @@ public class LePrefSettings extends PreferenceActivity implements OnPreferenceCh
 	} else {
 		SystemProperties.set(IMSSRV_SYSTEM_PROPERTY, "0");
 	}
-	if (DEBUG) Log.d(TAG, "CPUSLEEP_SO setting changed");
+	if (DEBUG) Log.d(TAG, "IMSSRV setting changed");
     }
 
     @Override
@@ -195,6 +212,11 @@ public class LePrefSettings extends PreferenceActivity implements OnPreferenceCh
 			value = (Boolean) newValue;
 			mEnableSemiIdle.setChecked(value);
 			setEnableSemiIdle(value);
+			return true;
+		} else if (ENABLE_DEVIDLE_KEY.equals(key)) {
+			value = (Boolean) newValue;
+			mEnableDevIdle.setChecked(value);
+			setEnableDevIdle(value);
 			return true;
 		} else if (ENABLE_CPUSLEEP_SO_KEY.equals(key)) {
 			value = (Boolean) newValue;

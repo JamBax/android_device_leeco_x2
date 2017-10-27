@@ -31,6 +31,10 @@
     <string name="hal3_title">Camera 2 API</string>
     <string name="hal3_summary">Enable/disable API2 mode for camera</string>
 
+    <string name="devidle_pref_title">DeviceIdle</string>
+    <string name="devidle_title">Device Idle Mode</string>
+    <string name="devidle_summary">Enable/disable DeviceIdle mode (when disabled ALL PowerSave features will be disabled) </string>
+
     <string name="semiidle_pref_title">SemiIdle</string>
     <string name="semiidle_title">SemiIdle Mode</string>
     <string name="semiidle_summary">Enable/disable SemiIdle mode while screen on</string>
