@@ -4,6 +4,13 @@ ro.internal.model=Le X820
 ro.config.le_hardware_version=HW_1.0.0
 ro.le.mtpname=Le Max2
 
+
+# LePref
+persist.ims.enabled=1
+persist.devidle.enabled=1
+persist.cpusleep_so.enabled=0
+persist.semiidle.enabled=1
+
 # Radio/RIL
 rild.libpath=/vendor/lib64/libril-qc-qmi-1.so
 persist.rild.nitz_plmn=
