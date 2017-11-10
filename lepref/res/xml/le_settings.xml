@@ -60,13 +60,23 @@
             android:title="@string/semiidle_title"
             android:summary="@string/semiidle_summary" />
 
-        <SwitchPreference
-            android:key="cpusleep"
-            android:defaultValue="false"
-            android:title="@string/cpusleep_title"
-            android:summary="@string/cpusleep_summary" />
-
 	</PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="app_settings"
+        android:title="@string/app_settings_title" >
+
+	<Preference android:title="@string/prefs_battery_saver_title" 
+		    android:summary="@string/prefs_battery_saver_summary">
+	    <intent android:action="android.settings.IGNORE_BATTERY_OPTIMIZATION_SETTINGS"/>
+	</Preference>
+
+	<Preference android:title="@string/prefs_app_options_title" 
+		    android:summary="@string/prefs_app_options_summary">
+	    <intent android:action="android.settings.APP_OPS_SETTINGS"/>
+	</Preference>
+
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:key="imssrv_pref"

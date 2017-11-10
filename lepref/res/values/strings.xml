@@ -39,9 +39,13 @@
     <string name="semiidle_title">SemiIdle Mode</string>
     <string name="semiidle_summary">Enable/disable SemiIdle mode while screen on</string>
 
-    <string name="cpusleep_pref_title">CPU Sleep while Screen On</string>
-    <string name="cpusleep_title">CPU Sleep while screen on Mode</string>
-    <string name="cpusleep_summary">Enable/disable CPU Sleep mode while screen on</string>
+    <string name="app_settings_title">Applications settings</string>
+
+    <string name="prefs_battery_saver_title">Whitelist</string>
+    <string name="prefs_battery_saver_summary">Device Whitelist</string>
+
+    <string name="prefs_app_options_title">App Options</string>
+    <string name="prefs_app_options_summary">App Options</string>
 
     <string name="imssrv_pref_title">IMS Services</string>
     <string name="imssrv_title">IMS Services</string>

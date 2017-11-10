@@ -39,9 +39,13 @@
     <string name="semiidle_title">Режим SemiIdle</string>
     <string name="semiidle_summary">Вкл/выкл режима SemiIdle при включенном экране</string>
 
-    <string name="cpusleep_pref_title">CPU Sleep с включенным экраном</string>
-    <string name="cpusleep_title">CPU Sleep с включенным экраном</string>
-    <string name="cpusleep_summary">Вкл/выкл режима CPU Sleep при включенном экране</string>
+    <string name="app_settings_title">Настройки приложений</string>
+
+    <string name="prefs_battery_saver_title">Белый список</string>
+    <string name="prefs_battery_saver_summary">Белый список</string>
+
+    <string name="prefs_app_options_title">Настройки приложений</string>
+    <string name="prefs_app_options_summary">Настройки приложений</string>
 
     <string name="imssrv_pref_title">IMS Services</string>
     <string name="imssrv_title">IMS Services</string>
