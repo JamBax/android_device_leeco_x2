@@ -60,6 +60,12 @@
             android:title="@string/semiidle_title"
             android:summary="@string/semiidle_summary" />
 
+        <SwitchPreference
+            android:key="autosuspend"
+            android:defaultValue="false"
+            android:title="@string/autosuspend_title"
+            android:summary="@string/autosuspend_summary" />
+
 	</PreferenceCategory>
 
     <PreferenceCategory

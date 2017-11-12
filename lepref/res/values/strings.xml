@@ -37,7 +37,11 @@
 
     <string name="semiidle_pref_title">SemiIdle</string>
     <string name="semiidle_title">SemiIdle Mode</string>
-    <string name="semiidle_summary">Enable/disable SemiIdle mode while screen on</string>
+    <string name="semiidle_summary">Enable/disable SemiIdle mode while screen is on. ALL syncs are DISABLED while on battery!</string>
+
+    <string name="autosuspend_pref_title">Autosuspend</string>
+    <string name="autosuspend_title">Autosuspend while screen on</string>
+    <string name="autosuspend_summary">Enable/disable autosuspend mode while screen is on. Could introduce lags!</string>
 
     <string name="app_settings_title">Applications settings</string>
 

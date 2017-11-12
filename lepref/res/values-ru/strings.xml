@@ -37,7 +37,11 @@
 
     <string name="semiidle_pref_title">SemiIdle</string>
     <string name="semiidle_title">Режим SemiIdle</string>
-    <string name="semiidle_summary">Вкл/выкл режима SemiIdle при включенном экране</string>
+    <string name="semiidle_summary">Вкл/выкл режима SemiIdle при включенном экране. Отключает ВСЕ синхронизации на батарее!</string>
+
+    <string name="autosuspend_pref_title">Autosuspend</string>
+    <string name="autosuspend_title">Режим сна с включенным экраном</string>
+    <string name="autosuspend_summary">Вкл/выкл режима сна с включенным экраном. Может вызывать лаги.</string>
 
     <string name="app_settings_title">Настройки приложений</string>
 
