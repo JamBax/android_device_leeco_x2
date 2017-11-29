@@ -8,9 +8,8 @@ ro.le.mtpname=Le Max2
 # LePref
 persist.ims.enabled=1
 persist.devidle.enabled=1
-persist.autosuspend.enabled=0
+persist.cpusleep_so.enabled=0
 persist.semiidle.enabled=0
-#persist.cpusleep_so.enabled=0
 
 # Radio/RIL
 rild.libpath=/vendor/lib64/libril-qc-qmi-1.so
@@ -134,57 +133,15 @@ mm.enable.qcom_parser=2097151
 persist.mm.enable.prefetch=true
 
 # Camera
-camera.disable_zsl_mode=0
+camera.disable_zsl_mode=1
 persist.camera.HAL3.enabled=1
 persist.camera.imglib.fddsp=1
-persist.camera.llc=0
-persist.camera.llnoise=0
+persist.camera.llc=1
+persist.camera.llnoise=1
 persist.camera.stats.test=5
-persist.camera.thermal.mode=fps
-persist.camera.ltmforseemore=1
-persist.camera.led.on.period=600
-persist.camera.auto.hdr.enable=enable
-persist.camera.tnr.video=0
-persist.camera.tnr.preview=0
-persist.camera.tnr.snapshot=0
-
-#persist.camera.opt.livepic=1-default
-persist.camera.opt.livepic=0 
-#persist.camera.feature.restart=0-default
-persist.camera.feature.restart=1
-
-#camera.lowpower.record.enable=0
-camera.lowpower.record.enable=1
-
-#persist.camera.eztune.enable=0
-persist.camera.eztune.enable=1
-
-#persist.camera.preview.ubwc=1
-persist.camera.preview.ubwc=0
-
-#persist.camera.video.ubwc=1
-persist.camera.video.ubwc=0
-
-#persist.camera.hal3.force.hdr=0
-persist.camera.hal3.force.hdr=1
-
-#persist.camera.swtnr.preview=1
-persist.camera.swtnr.preview=0
-
-#persist.camera.hal3hfr.enable=1
-persist.camera.hal3hfr.enable=0
-
-#persist.camera.hybrid_ae.enable=0
-persist.camera.hybrid_ae.enable=1
-
-persist.camera.hal.debug=1
-persist.camera.kpi.debug=1
-persist.camera.global.debug=1
-
-persist.camera.disp.fps=60
 
 # VIDC
-vidc.enc.dcvs.extra-buff-count=4
+vidc.enc.dcvs.extra-buff-count=2
 vidc.debug.perf.mode=2
 vidc.enc.disable.pq=true
 
