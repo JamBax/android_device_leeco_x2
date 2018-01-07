@@ -83,7 +83,7 @@ on enable-low-power
     write /sys/devices/soc/soc:qcom,bcl/mode "enable"
 
     # Setting b.L scheduler parameters
-    write /proc/sys/kernel/sched_boost 0
+    write /proc/sys/kernel/sched_boost 1
     write /proc/sys/kernel/sched_migration_fixup 1
     write /proc/sys/kernel/sched_downmigrate 80
     write /proc/sys/kernel/sched_upmigrate 90
@@ -93,26 +93,38 @@ on enable-low-power
     write /proc/sys/kernel/sched_init_task_load 100
     write /proc/sys/kernel/sched_upmigrate_min_nice 9
 
+    write /sys/devices/system/cpu/cpu0/sched_static_cluster_pwr_cost 25
+    write /sys/devices/system/cpu/cpu0/sched_static_cpu_pwr_cost 25
+
+    write /sys/devices/system/cpu/cpu1/sched_static_cluster_pwr_cost 10
+    write /sys/devices/system/cpu/cpu1/sched_static_cpu_pwr_cost 10
+
+    write /sys/devices/system/cpu/cpu2/sched_static_cluster_pwr_cost 100
+    write /sys/devices/system/cpu/cpu2/sched_static_cpu_pwr_cost 100
+
+    write /sys/devices/system/cpu/cpu3/sched_static_cluster_pwr_cost 100
+    write /sys/devices/system/cpu/cpu3/sched_static_cpu_pwr_cost 100
+
     # Enable bus-dcvs
     write /sys/class/devfreq/soc:qcom,cpubw/governor "bw_hwmon"
-    write /sys/class/devfreq/soc:qcom,cpubw/polling_interval 50
+    write /sys/class/devfreq/soc:qcom,cpubw/polling_interval 100
     write /sys/class/devfreq/soc:qcom,cpubw/min_freq 1525
     write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/mbps_zones "1525 5195 11863 13763"
-    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/sample_ms 4
+    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/sample_ms 100
     write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/io_percent 34
     write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/hist_memory 20
     write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/hyst_length 10
     write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/low_power_ceil_mbps 0
     write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/low_power_io_percent 34
-    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/low_power_delay 20
+    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/low_power_delay 100
     write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/guard_band_mbps 0
-    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/up_scale 250
-    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/idle_mbps 1600
+    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/up_scale 100
+    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/idle_mbps 1000
 
     write /sys/class/devfreq/soc:qcom,memlat-cpu0/governor "mem_latency"
-    write /sys/class/devfreq/soc:qcom,memlat-cpu0/polling_interval 10
+    write /sys/class/devfreq/soc:qcom,memlat-cpu0/polling_interval 100
     write /sys/class/devfreq/soc:qcom,memlat-cpu2/governor "mem_latency"
-    write /sys/class/devfreq/soc:qcom,memlat-cpu2/polling_interval 10
+    write /sys/class/devfreq/soc:qcom,memlat-cpu2/polling_interval 100
     write /sys/class/devfreq/soc:qcom,mincpubw/governor "cpufreq"
 
     write /sys/module/lpm_levels/parameters/sleep_disabled "N"

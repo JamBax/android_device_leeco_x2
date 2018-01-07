@@ -31,9 +31,16 @@
     <string name="hal3_title">Camera 2 API</string>
     <string name="hal3_summary">Вкл/выкл режима API2</string>
 
+    <string name="screenoff_pref_title">Экран выключен</string>
+    <string name="screenon_pref_title">Экран включен</string>
+
     <string name="devidle_pref_title">DeviceIdle</string>
     <string name="devidle_title">Device Idle</string>
     <string name="devidle_summary">Вкл/выкл режима Idle. При выключении ВСЕ функции сохранения энергии будут отключены.</string>
+
+    <string name="killtopapp_pref_title">Закрывать активное ариложение</string>
+    <string name="killtopapp_title">Закрывать \'запрещенное\' активное приложение</string>
+    <string name="killtopapp_summary">Вкл/Выкл закрытие \'запрещенного\' активного приложения при выключении экрана</string>
 
     <string name="semiidle_pref_title">SemiIdle</string>
     <string name="semiidle_title">Режим SemiIdle</string>
@@ -42,6 +49,15 @@
     <string name="autosuspend_pref_title">Autosuspend</string>
     <string name="autosuspend_title">Режим сна с включенным экраном</string>
     <string name="autosuspend_summary">Вкл/выкл режима сна с включенным экраном. Может вызывать лаги.</string>
+
+    <string name="controlcpu0_title">Управлять LITTLE ядрами</string>
+    <string name="controlcpu0_summary">Вкл/выкл управления LITTLE ядрами</string>
+
+    <string name="controlcpu2_title">Управлять BIG ядрами</string>
+    <string name="controlcpu2_summary">Вкл/выкл управления BIG ядрами</string>
+
+    <string name="wb_title">Блокировщик вейклоков ядра</string>
+    <string name="wb_summary">кл/выкл блокировщика вейклоков ядра</string>
 
     <string name="app_settings_title">Настройки приложений</string>
 

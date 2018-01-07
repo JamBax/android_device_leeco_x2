@@ -44,8 +44,8 @@
 	</PreferenceCategory>
 
     <PreferenceCategory
-        android:key="devidle_pref"
-        android:title="@string/devidle_pref_title" >
+        android:key="screenoff_pref"
+        android:title="@string/screenoff_pref_title" >
 
 
         <SwitchPreference
@@ -53,6 +53,37 @@
             android:defaultValue="false"
             android:title="@string/devidle_title"
             android:summary="@string/devidle_summary" />
+
+        <SwitchPreference
+            android:key="killtopapp"
+            android:defaultValue="false"
+            android:title="@string/killtopapp_title"
+            android:summary="@string/killtopapp_summary" />
+
+        <!-- SwitchPreference
+            android:key="idlecpu0"
+            android:defaultValue="false"
+            android:title="@string/controlcpu0_title"
+            android:summary="@string/controlcpu0_summary" />
+
+        <SwitchPreference
+            android:key="idlecpu2"
+            android:defaultValue="false"
+            android:title="@string/controlcpu2_title"
+            android:summary="@string/controlcpu2_summary" / -->
+
+        <SwitchPreference
+            android:key="wbsoff"
+            android:defaultValue="false"
+            android:title="@string/wb_title"
+            android:summary="@string/wb_summary" />
+
+
+	</PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="screenon_pref"
+        android:title="@string/screenon_pref_title" >
 
         <SwitchPreference
             android:key="semiidle"
@@ -65,6 +96,24 @@
             android:defaultValue="false"
             android:title="@string/autosuspend_title"
             android:summary="@string/autosuspend_summary" />
+
+        <!-- SwitchPreference
+            android:key="autosuspendcpu0"
+            android:defaultValue="false"
+            android:title="@string/controlcpu0_title"
+            android:summary="@string/controlcpu0_summary" />
+
+        <SwitchPreference
+            android:key="autosuspendcpu2"
+            android:defaultValue="false"
+            android:title="@string/controlcpu2_title"
+            android:summary="@string/controlcpu2_summary" / -->
+
+        <SwitchPreference
+            android:key="wbson"
+            android:defaultValue="false"
+            android:title="@string/wb_title"
+            android:summary="@string/wb_summary" />
 
 	</PreferenceCategory>
 

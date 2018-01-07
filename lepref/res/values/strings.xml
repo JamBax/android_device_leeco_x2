@@ -31,9 +31,17 @@
     <string name="hal3_title">Camera 2 API</string>
     <string name="hal3_summary">Enable/disable API2 mode for camera</string>
 
+
+    <string name="screenoff_pref_title">Screen Off</string>
+    <string name="screenon_pref_title">Screen On</string>
+
     <string name="devidle_pref_title">DeviceIdle</string>
     <string name="devidle_title">Device Idle Mode</string>
     <string name="devidle_summary">Enable/disable DeviceIdle mode (when disabled ALL PowerSave features will be disabled) </string>
+
+    <string name="killtopapp_pref_title">Kill Top App</string>
+    <string name="killtopapp_title">Kill \'disabled\' top app on screen off</string>
+    <string name="killtopapp_summary">Enable/disable kill \'disabled\' top app on screen off!</string>
 
     <string name="semiidle_pref_title">SemiIdle</string>
     <string name="semiidle_title">SemiIdle Mode</string>
@@ -42,6 +50,15 @@
     <string name="autosuspend_pref_title">Autosuspend</string>
     <string name="autosuspend_title">Autosuspend while screen on</string>
     <string name="autosuspend_summary">Enable/disable autosuspend mode while screen is on. Could introduce lags!</string>
+
+    <string name="controlcpu0_title">Control LITTLE cores</string>
+    <string name="controlcpu0_summary">Enable/disable control LITTLE cores.</string>
+
+    <string name="controlcpu2_title">Control BIG cores</string>
+    <string name="controlcpu2_summary">Enable/disable control BIG cores.</string>
+
+    <string name="wb_title">Kernel wakelock blocker</string>
+    <string name="wb_summary">Enable/disable kernel wakelock blocker</string>
 
     <string name="app_settings_title">Applications settings</string>
 

@@ -1038,8 +1038,8 @@ service cnss_diag /system/bin/cnss_diag -q -f
     group root
     #ifdef VENDOR_EDIT
     # cnss diag cause power consumption bigger sometimes, so disable it until solve it
-    disabled
     #endif
+    disabled
     oneshot
 
 service cnss-daemon /system/bin/cnss-daemon -n -l

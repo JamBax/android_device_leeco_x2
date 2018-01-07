@@ -20,6 +20,7 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
+import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -38,7 +39,19 @@ public class LePrefSettings extends PreferenceActivity implements OnPreferenceCh
 	private static final String ENABLE_IMSSRV_KEY = "imssrv";
 	private static final String ENABLE_DEVIDLE_KEY = "devidle";
 	private static final String ENABLE_AUTOSUSPEND_KEY = "autosuspend";
+	private static final String ENABLE_KILLTOPAPP_KEY = "killtopapp";
+
+	private static final String ENABLE_AUTOSUSPEND_CPU0_KEY = "autosuspendcpu0";
+	private static final String ENABLE_AUTOSUSPEND_CPU2_KEY = "autosuspendcpu2";
+
+	private static final String ENABLE_IDLE_CPU0_KEY = "idlecpu0";
+	private static final String ENABLE_IDLE_CPU2_KEY = "idlecpu2";
+
+	private static final String ENABLE_WAKELOCK_BLOCKER_SCREENOFF_KEY = "wbsoff";
+	private static final String ENABLE_WAKELOCK_BLOCKER_SCREENON_KEY = "wbson";
+
 	private static final String AKT_KEY = "akt";
+
 	private static final String QC_SYSTEM_PROPERTY = "persist.sys.le_fast_chrg_enable";
 	private static final String HAL3_SYSTEM_PROPERTY = "persist.camera.HAL3.enabled";
 	private static final String AKT_SYSTEM_PROPERTY = "persist.AKT.profile";
@@ -46,6 +59,20 @@ public class LePrefSettings extends PreferenceActivity implements OnPreferenceCh
     	private static final String IMSSRV_SYSTEM_PROPERTY = "persist.ims.enabled";
     	private static final String DEVIDLE_SYSTEM_PROPERTY = "persist.devidle.enabled";
     	private static final String AUTOSUSPEND_SYSTEM_PROPERTY = "persist.autosuspend.enabled";
+    	private static final String KILLTOPAPP_SYSTEM_PROPERTY = "persist.killtopapp.enabled";
+
+    	private static final String AUTOSUSPEND_CPU0_SYSTEM_PROPERTY = "persist.autosuspend.cpu0";
+    	private static final String AUTOSUSPEND_CPU2_SYSTEM_PROPERTY = "persist.autosuspend.cpu2";
+
+    	private static final String IDLE_CPU0_SYSTEM_PROPERTY = "persist.deviceidle.cpu0";
+    	private static final String IDLE_CPU2_SYSTEM_PROPERTY = "persist.deviceidle.cpu2";
+
+    	private static final String WAKELOCK_BLOCKER_SCREENOFF_SYSTEM_PROPERTY = "persist.wblock.soff";
+    	
+	private static final String WAKELOCK_BLOCKER_SCREENON_SYSTEM_PROPERTY = "persist.wblock.son";
+
+	private boolean mEnabled = false;
+
 
 	private SwitchPreference mEnableQC;
 	private SwitchPreference mEnableHAL3;
@@ -53,7 +80,16 @@ public class LePrefSettings extends PreferenceActivity implements OnPreferenceCh
 	private SwitchPreference mEnableIms;
 	private SwitchPreference mEnableDevIdle;
 	private SwitchPreference mEnableAutoSuspend;
+	private SwitchPreference mEnableKillTopApp;
+
+	private SwitchPreference mEnableAutosuspendCpu0;
+	private SwitchPreference mEnableAutosuspendCpu2;
+
+	private SwitchPreference mEnableIdleCpu0;
+	private SwitchPreference mEnableIdleCpu2;
 	
+	private SwitchPreference mWakelockBlockerScreenOn;
+	private SwitchPreference mWakelockBlockerScreenOff;
 
 	private ListPreference mAKT;
 
@@ -78,6 +114,10 @@ public class LePrefSettings extends PreferenceActivity implements OnPreferenceCh
         mEnableDevIdle.setChecked(SystemProperties.getBoolean(DEVIDLE_SYSTEM_PROPERTY, false));
         mEnableDevIdle.setOnPreferenceChangeListener(this);
 
+        mEnableKillTopApp = (SwitchPreference) findPreference(ENABLE_KILLTOPAPP_KEY);
+        mEnableKillTopApp.setChecked(SystemProperties.getBoolean(KILLTOPAPP_SYSTEM_PROPERTY, false));
+        mEnableKillTopApp.setOnPreferenceChangeListener(this);
+
         mEnableSemiIdle = (SwitchPreference) findPreference(ENABLE_SEMIIDLE_KEY);
         mEnableSemiIdle.setChecked(SystemProperties.getBoolean(SEMIIDLE_SYSTEM_PROPERTY, false));
         mEnableSemiIdle.setOnPreferenceChangeListener(this);
@@ -89,6 +129,41 @@ public class LePrefSettings extends PreferenceActivity implements OnPreferenceCh
         mEnableIms = (SwitchPreference) findPreference(ENABLE_IMSSRV_KEY);
         mEnableIms.setChecked(SystemProperties.getBoolean(IMSSRV_SYSTEM_PROPERTY, false));
         mEnableIms.setOnPreferenceChangeListener(this);
+
+
+	/*
+        mEnableAutosuspendCpu0 = (SwitchPreference) findPreference(ENABLE_AUTOSUSPEND_CPU0_KEY);
+	mEnabled = SystemProperties.getInt(AUTOSUSPEND_CPU0_SYSTEM_PROPERTY,2) == 1 ?  true : false;
+        mEnableAutosuspendCpu0.setChecked(mEnabled);
+        mEnableAutosuspendCpu0.setOnPreferenceChangeListener(this);
+        mEnableAutosuspendCpu0.setVisibility(View.GONE);
+
+        mEnableAutosuspendCpu2 = (SwitchPreference) findPreference(ENABLE_AUTOSUSPEND_CPU2_KEY);
+	mEnabled = SystemProperties.getInt(AUTOSUSPEND_CPU2_SYSTEM_PROPERTY,2) == 0 ?  true : false;
+        mEnableAutosuspendCpu2.setChecked(mEnabled);
+        mEnableAutosuspendCpu2.setOnPreferenceChangeListener(this);
+        mEnableAutosuspendCpu2.setVisibility(View.GONE);
+
+        mEnableIdleCpu0 = (SwitchPreference) findPreference(ENABLE_IDLE_CPU0_KEY);
+	mEnabled = SystemProperties.getInt(IDLE_CPU0_SYSTEM_PROPERTY,2) == 1 ?  true : false;
+        mEnableIdleCpu0.setChecked(mEnabled);
+        mEnableIdleCpu0.setOnPreferenceChangeListener(this);
+        mEnableIdleCpu0.setVisibility(View.GONE);
+
+        mEnableIdleCpu2 = (SwitchPreference) findPreference(ENABLE_IDLE_CPU2_KEY);
+	mEnabled = SystemProperties.getInt(IDLE_CPU2_SYSTEM_PROPERTY,2) == 0 ?  true : false;
+        mEnableIdleCpu2.setChecked(mEnabled);
+        mEnableIdleCpu2.setOnPreferenceChangeListener(this);
+        mEnableIdleCpu2.setVisibility(View.GONE);
+        */
+
+        mWakelockBlockerScreenOn = (SwitchPreference) findPreference(ENABLE_WAKELOCK_BLOCKER_SCREENON_KEY);
+        mWakelockBlockerScreenOn.setChecked(SystemProperties.getBoolean(WAKELOCK_BLOCKER_SCREENON_SYSTEM_PROPERTY, false));
+        mWakelockBlockerScreenOn.setOnPreferenceChangeListener(this);
+
+        mWakelockBlockerScreenOff = (SwitchPreference) findPreference(ENABLE_WAKELOCK_BLOCKER_SCREENOFF_KEY);
+        mWakelockBlockerScreenOff.setChecked(SystemProperties.getBoolean(WAKELOCK_BLOCKER_SCREENOFF_SYSTEM_PROPERTY, false));
+        mWakelockBlockerScreenOff.setOnPreferenceChangeListener(this);
         
         mAKT = (ListPreference) findPreference(AKT_KEY);
         mAKT.setValue(SystemProperties.get(AKT_SYSTEM_PROPERTY, "Stock"));
@@ -132,6 +207,28 @@ public class LePrefSettings extends PreferenceActivity implements OnPreferenceCh
 		SystemProperties.set(AKT_SYSTEM_PROPERTY, value);
     }
    
+
+    private void setProperty(String property, boolean value) {
+	if(value) {
+		SystemProperties.set(property, "1");
+	} else {
+			SystemProperties.set(property, "0");
+	}
+	if (DEBUG) Log.d(TAG, property + " setting changed");
+    }
+
+    private void setProperty(String property, int value) {
+	String prop = "" + value;
+	SystemProperties.set(property, prop);
+	if (DEBUG) Log.d(TAG, property + " setting changed");
+    }
+
+
+    private void setProperty(String property, String value) {
+	SystemProperties.set(property, value);
+	if (DEBUG) Log.d(TAG, property + " setting changed");
+    }
+
     // Control Camera2API
     private void setEnableHAL3(boolean value) {
 	if(value) {
@@ -149,6 +246,15 @@ public class LePrefSettings extends PreferenceActivity implements OnPreferenceCh
 		SystemProperties.set(DEVIDLE_SYSTEM_PROPERTY, "0");
 	}
 	if (DEBUG) Log.d(TAG, "DEVIDLE setting changed");
+    }
+
+    private void setEnableKillTopApp(boolean value) {
+	if(value) {
+		SystemProperties.set(KILLTOPAPP_SYSTEM_PROPERTY, "1");
+	} else {
+		SystemProperties.set(KILLTOPAPP_SYSTEM_PROPERTY, "0");
+	}
+	if (DEBUG) Log.d(TAG, "KILLTOPAPP setting changed");
     }
 
     private void setEnableAutoSuspend(boolean value) {
@@ -218,6 +324,11 @@ public class LePrefSettings extends PreferenceActivity implements OnPreferenceCh
 			mEnableDevIdle.setChecked(value);
 			setEnableDevIdle(value);
 			return true;
+		} else if (ENABLE_KILLTOPAPP_KEY.equals(key)) {
+			value = (Boolean) newValue;
+			mEnableKillTopApp.setChecked(value);
+			setEnableKillTopApp(value);
+			return true;
 		} else if (ENABLE_AUTOSUSPEND_KEY.equals(key)) {
 			value = (Boolean) newValue;
 			mEnableAutoSuspend.setChecked(value);
@@ -227,6 +338,40 @@ public class LePrefSettings extends PreferenceActivity implements OnPreferenceCh
 			value = (Boolean) newValue;
 			mEnableIms.setChecked(value);
 			setEnableImsSrv(value);
+			return true;
+		} else if (ENABLE_AUTOSUSPEND_CPU0_KEY.equals(key)) {
+			value = (Boolean) newValue;
+			mEnableAutosuspendCpu0.setChecked(value);
+			if( value ) setProperty(AUTOSUSPEND_CPU0_SYSTEM_PROPERTY,"1");
+			else setProperty(AUTOSUSPEND_CPU0_SYSTEM_PROPERTY,"2");
+			return true;
+		} else if (ENABLE_AUTOSUSPEND_CPU2_KEY.equals(key)) {
+			value = (Boolean) newValue;
+			mEnableAutosuspendCpu2.setChecked(value);
+			if( value ) setProperty(AUTOSUSPEND_CPU2_SYSTEM_PROPERTY,"0");
+			else setProperty(AUTOSUSPEND_CPU2_SYSTEM_PROPERTY,"2");
+			return true;
+		} else if (ENABLE_IDLE_CPU0_KEY.equals(key)) {
+			value = (Boolean) newValue;
+			mEnableIdleCpu0.setChecked(value);
+			if( value ) setProperty(IDLE_CPU0_SYSTEM_PROPERTY,"1");
+			else setProperty(IDLE_CPU0_SYSTEM_PROPERTY,"2");
+			return true;
+		} else if (ENABLE_IDLE_CPU2_KEY.equals(key)) {
+			value = (Boolean) newValue;
+			mEnableIdleCpu2.setChecked(value);
+			if( value ) setProperty(IDLE_CPU2_SYSTEM_PROPERTY,"0");
+			else setProperty(IDLE_CPU2_SYSTEM_PROPERTY,"2");
+			return true;
+		} else if (ENABLE_WAKELOCK_BLOCKER_SCREENOFF_KEY.equals(key)) {
+			value = (Boolean) newValue;
+			mWakelockBlockerScreenOff.setChecked(value);
+			setProperty(WAKELOCK_BLOCKER_SCREENOFF_SYSTEM_PROPERTY,value);
+			return true;
+		} else if (ENABLE_WAKELOCK_BLOCKER_SCREENON_KEY.equals(key)) {
+			value = (Boolean) newValue;
+			mWakelockBlockerScreenOn.setChecked(value);
+			setProperty(WAKELOCK_BLOCKER_SCREENON_SYSTEM_PROPERTY,value);
 			return true;
 		} else if (AKT_KEY.equals(key)) {
 			strvalue = (String) newValue;
@@ -242,3 +387,4 @@ public class LePrefSettings extends PreferenceActivity implements OnPreferenceCh
     }
 
 }
+
