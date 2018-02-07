@@ -162,7 +162,12 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint sensor
 PRODUCT_PACKAGES += \
-    fingerprintd
+    fingerprintd \
+    fingerprint.msm9886
+
+# FlipFlap
+PRODUCT_PACKAGES += \
+    FlipFlap
 
 # GPS
 PRODUCT_PACKAGES += \
